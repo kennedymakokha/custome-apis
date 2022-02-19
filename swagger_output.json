@@ -11,6 +11,10 @@
     {
       "name": "My Portfolio",
       "description": "Endpoints to my personal portfolio"
+    },
+    {
+      "name": "Octagon Dynamics",
+      "description": "Endpoints to octagon dynamics web application"
     }
   ],
   "schemes": [
@@ -35,7 +39,36 @@
     "/api/portfolio/sent-mail": {
       "post": {
         "tags": [
-          "Sent Mail"
+          "My Portfolio"
+        ],
+        "description": "Endpoint to sent mail from my contact form on the porfolio",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Sent email.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SentMail"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/api/ocatagon-dynamics/sent-mail": {
+      "post": {
+        "tags": [
+          "Octagon Dynamics"
         ],
         "description": "Endpoint to sent mail from my contact form on the porfolio",
         "parameters": [
@@ -90,7 +123,5 @@
         "subject"
       ]
     }
-    
-   
   }
 }

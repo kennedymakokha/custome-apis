@@ -14,10 +14,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 const PORT = process.env.PORT;
 const Portfolio = require('./routes/portfolio')
+const Ocatagon = require('./routes/octagon')
 
 
 app.use(express.static('images'));
 app.use('/api/portfolio', Portfolio);
+app.use('/api/ocatagon-dynamics', Ocatagon);
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 const root = require('path').join(__dirname, 'client', 'build')
 app.use(express.static(root));

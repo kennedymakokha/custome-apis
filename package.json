@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js "
   },
   "author": "Makokha",
   "license": "ISC",
@@ -13,9 +14,11 @@
     "dotenv": "^16.0.0",
     "email-templates": "^8.0.8",
     "express": "^4.17.3",
+    "joi": "^17.6.0",
     "mongoose": "^6.2.2",
     "nodemailer": "^6.7.2",
     "nodemailer-express-handlebars": "^4.0.0",
+    "nodemon": "^2.0.15",
     "swagger-autogen": "^2.18.8",
     "swagger-ui-express": "^4.3.0"
   }
