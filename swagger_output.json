@@ -65,6 +65,82 @@
         ]
       }
     },
+    "/api/portfolio/mails": {
+      "get": {
+        "tags": [
+          "My Portfolio"
+        ],
+        "description": "Endpoint to fetch all mails from my contact form on the porfolio",
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "api/ocatagon-dynamics/register": {
+      "post": {
+        "tags": [
+          "Octagon Dynamics"
+        ],
+        "description": "Endpoint to register new user into ocagon dynamics web application",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Registering new user into the sytem.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddUser"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/api/ocatagon-dynamics/login": {
+      "post": {
+        "tags": [
+          "Octagon Dynamics"
+        ],
+        "description": "Endpoint to login  into ocagon dynamics web application",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "loging  into the sytem.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LoginUser"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
     "/api/ocatagon-dynamics/sent-mail": {
       "post": {
         "tags": [
@@ -80,6 +156,54 @@
             "schema": {
               "$ref": "#/definitions/SentMail"
             }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/api/ocatagon-dynamics/mails": {
+      "get": {
+        "tags": [
+          "Octagon Dynamics"
+        ],
+        "description": "Endpoint to fetch all mails from my contact form on octagon dynamics web applcation",
+        
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "security": [
+          {
+            "apiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/api/ocatagon-dynamics/mails/{subject}": {
+      "get": {
+        "tags": [
+          "Octagon Dynamics"
+        ],
+        "description": "Endpoint to sent mail from my contact form on the porfolio",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "subject",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "slug from the subject"
           }
         ],
         "responses": {
@@ -121,6 +245,49 @@
         "message",
         "name",
         "subject"
+      ]
+    },
+    "AddUser": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "John"
+        },
+        "email": {
+          "type": "string",
+          "example": "email@example.com"
+        },
+        "phone_number": {
+          "type": "string",
+          "example": "07279797819"
+        },
+        "password": {
+          "type": "string",
+          "example": "passwordexample"
+        },
+        "password_confirmation": {
+          "type": "string",
+          "example": "passwordexample"
+        }
+      },
+      "required": []
+    },
+    "LoginUser": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "email@example.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "passwordexample"
+        }
+      },
+      "required": [
+        "email",
+        "passweord"
       ]
     }
   }

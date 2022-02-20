@@ -17,6 +17,10 @@ const doc = {
             "name": "Portfolio",
             "description": "Endpoints"
         },
+        {
+            "name": "Octagon Dynamics",
+            "description": "Endpoints"
+        },
         // {
         //     "name": "Category",
         //     "description": "Category Endpoints"

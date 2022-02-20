@@ -17,6 +17,15 @@ const Portfolio = require('./routes/portfolio')
 const Ocatagon = require('./routes/octagon')
 
 
+
+mongoose.connect(
+    process.env.DB_CONNECT,
+    async(err)=>{
+        if(err) throw err;
+        console.log("conncted to db")
+    }
+)
+
 app.use(express.static('images'));
 app.use('/api/portfolio', Portfolio);
 app.use('/api/ocatagon-dynamics', Ocatagon);
